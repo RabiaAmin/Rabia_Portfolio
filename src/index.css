@@ -65,6 +65,8 @@
     }
   
   }
+
+
   
 
 }
@@ -87,7 +89,7 @@
   --background : 222 47% 4%;
   --foreground : 213 31% 91%;
 
-  --card: 222 8% 47%;
+ --card: 222 10% 7%;
 
   --primary:250 65% 65%;
   --primary-foreground: 213 31% 91%;
@@ -106,6 +108,10 @@ html{
 body {
   @apply bg-background text-foreground transition-colors duration-300;
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+p {
+  font-size: 0.9rem;
 }
 
 }
@@ -134,7 +140,7 @@ body {
 
 @utility text-glow {
   @apply relative ;
-  text-shadow : 0 0 10px rgba(167,138,250,0.5);
+  text-shadow : 0 0 50px rgba(167,138,250,0.5);
 }
 
 @utility card-hover{
@@ -169,4 +175,14 @@ body {
   margin: 0 auto;
   padding: 0;
   text-align: center;
+}
+
+
+  @keyframes glow-move {
+  0% {
+    transform: translate(-50%, -33%) scale(1);
+  }
+  100% {
+    transform: translate(-30%, -20%) scale(1.3);
+  }
 }
