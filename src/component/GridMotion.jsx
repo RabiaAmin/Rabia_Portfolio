@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
-const GridMotion = ({ items = [], gradientColor = 'bg-primary' }) => {
+const GridMotion = ({ items = [], gradientColor = '#7F6BE0' }) => {
   const gridRef = useRef(null);
   const rowRefs = useRef([]); // Array of refs for each row
   const mouseXRef = useRef(window.innerWidth / 2);
@@ -77,13 +77,13 @@ const GridMotion = ({ items = [], gradientColor = 'bg-primary' }) => {
                     <div
                       className="relative w-full h-full overflow-hidden rounded-[10px] bg-card flex items-center justify-center text-foreground text-[1.5rem]"
                     >
-                      {typeof content === 'string' && content.startsWith('http') ? (
+                      {typeof content === 'string' && (content.startsWith('http') || content.endsWith('.png') || content.endsWith('.jpg')) ? (
                         <div
                           className="w-full h-full bg-cover bg-center absolute top-0 left-0"
                           style={{ backgroundImage: `url(${content})` }}
                         ></div>
                       ) : (
-                        <div className=" justify-center items-center z-[1]">{content}</div>
+                        <div className="justify-center items-center z-[1]">{content}</div>
                       )}
                     </div>
                   </div>

@@ -143,6 +143,12 @@ p {
   text-shadow : 0 0 50px rgba(167,138,250,0.5);
 }
 
+
+@utility glow {
+  @apply relative ;
+  box-shadow : 0 0 50px rgba(167,138,250,0.5);
+}
+
 @utility card-hover{
   @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
   
