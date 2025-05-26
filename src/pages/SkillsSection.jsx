@@ -80,9 +80,9 @@ const skillsData = [
 ];
 
 function SkillsSection() {
-  const [activeCategory , setActiveCategory] = useState('frontend');
+  const [activeCategory , setActiveCategory] = useState('all');
   
-  const filteredSkill = skillsData.filter(item => item.category === activeCategory);
+  const filteredSkill = activeCategory=='all' ? skillsData :skillsData.filter(item => item.category === activeCategory);
 
   return (
     <section id="skill" >
@@ -120,11 +120,11 @@ function SkillsSection() {
             My <span className="text-primary">Skills</span>{" "}
           </h1>
           <div className="flex justify-around flex-wrap gap-2 mb-4">
-            {['frontend','mobile','version control & tools','others'].map((category, key) => (
+            {['all','frontend','mobile','version control & tools','others'].map((category, key) => (
               <div key={key}>
                 <button onClick= {()=> setActiveCategory(category)} 
                 className={cn(
-                   "px-6 py-2  rounded-full  border border-primary text-primary hover:bg-primary/50 hover:text-primary-foreground transition-colors duration-300"
+                   "capitalize px-6 py-2  rounded-full  border border-primary text-primary hover:bg-primary/50 hover:text-primary-foreground transition-colors duration-300"
                    ,activeCategory === category ? "bg-primary text-primary-foreground" : "bg-secondry/70"
               )}>
                   {category}
@@ -132,8 +132,7 @@ function SkillsSection() {
               </div>
             ))}
           </div>
-          <div className="text-sm md:text-base text-left max-w-4xl ">
-            <div className="grid  grid-cols-2  gap-8">
+            <div className="grid  grid-cols-2  gap-8 text-sm md:text-base text-left max-w-4xl">
               {filteredSkill.map((section, index) => (
                 <div key={index}>
                   <ul className="list-disc list-inside space-y-1">
@@ -144,7 +143,7 @@ function SkillsSection() {
                 </div>
               ))}
             </div>
-          </div>
+         
         </div>
       </div>
     </section>

@@ -5,10 +5,13 @@ import NavBar from "./NavBar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
+import Projects from "../component/Projects";
+import ContactSection from "./ContactSection";
+import Footer from "./Footer";
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden ">
       {/* Theme Toggle */}
       <ThemeToggle />
       {/* Background Effeect */}
@@ -17,11 +20,14 @@ function Home() {
 
       {/* Navbar */}
       <NavBar />
-      {/* Main Content*/}
+      {/* main content */}
       <HeroSection/>
       <AboutSection/>
       <SkillsSection/>
+      <Projects/>
+      <ContactSection/>
       {/* Footer*/}
+      <Footer/> 
     </div>
   );
 }

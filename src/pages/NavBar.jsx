@@ -13,16 +13,16 @@ const navItems = [
 
 function NavBar() {
   const [ isScrolled , setIsScrolled] = useState(false);
+useEffect(() => {
+  const handleScroll = () => {
+   const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    console.log("ScrollY:", scrollTop);
+    setIsScrolled(scrollTop > 10);
+  };
 
-  useEffect(()=>{
-    const handleScroll = ()=> {
-      setIsScrolled(window.screenY > 10);
-    };
-
-    window.addEventListener("scroll" , handleScroll);
-
-    return ()=> window.removeEventListener("scroll",handleScroll);
-  },[]);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <nav className={

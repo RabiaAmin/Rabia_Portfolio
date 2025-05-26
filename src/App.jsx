@@ -5,7 +5,7 @@ import BottomNav from "./pages/BottomNav";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen pb-16"> {/* padding bottom to prevent overlap with nav */}
+      <div className="min-h-screen "> {/* padding bottom to prevent overlap with nav */}
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFoundPage />} />
