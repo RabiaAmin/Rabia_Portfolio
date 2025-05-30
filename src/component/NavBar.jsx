@@ -4,9 +4,9 @@ import {cn} from "../lib/utility"
 
 const navItems = [
   {name:"Home",href:"#hero"},
+  {name:"About",href:"#about"},
   {name:"Skills",href:"#skills"},
   {name:"Projects",href:"#project"},
-  {name:"About",href:"#about"},
   {name:"Contact",href:"#contact"}
 
 ]
@@ -32,10 +32,10 @@ useEffect(() => {
     )} >
 
       <div className='container flex items-center justify-between '>
-        <a href="#hero" className='text-xl font-bold text-primary flex items-center'>
+        <a href="#hero" className='font-MyFont text-xl font-bold text-primary flex items-center'>
 
           <span className='relative z-10'>
-            <span className='text-glow text-foreground'>Rabia</span>{" "}
+            <span className='text-glow text-foreground '>Rabia</span>{" "}
             .dev
           </span>
         </a>

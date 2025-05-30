@@ -1,5 +1,6 @@
 import { Code, Smartphone, LayoutTemplate } from "lucide-react";
 import React from "react";
+import resume from '../assets/rabia-resume.pdf';
 
 const cardItems = [
   {
@@ -21,7 +22,7 @@ const cardItems = [
 
 function AboutSection() {
   return (
-    <section id="about" className="py-24 px-4 relative">
+    <section id="about" className="py-24 px-4 relative ">
       {" "}
       <div className="container max-auto max-w-5xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-12 text-center tracking-tight">
@@ -50,7 +51,8 @@ function AboutSection() {
                 Get In Touch
               </a>
               <a
-                href=""
+                href={resume}
+                download='resume'
                 className="px-6 py-2 rounded-full  border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
                 {" "}
@@ -63,11 +65,11 @@ function AboutSection() {
                 const Icon = item.icon;
 
             return (<div key={key} className="gradient-border p-6 card-hover">
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col items-center justify-center md:flex-row md:items-start gap-4">
                   <div className="p-3 rounded-full bg-primary/10">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
-                  <div className="text-left">
+                  <div className="text-center md:text-left">
 
                     <h4 className="font-semibold text-lg">{item.title}</h4>
                     <p className="text-muted-foreground">{item.para} </p>

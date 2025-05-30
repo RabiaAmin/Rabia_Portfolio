@@ -1,6 +1,22 @@
+@font-face {
+  font-family: 'MyFont';
+  src: url('./assets/fonts/Lequire.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 @import "tailwindcss";
 
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
 @theme {
+  --font-MyFont : MyFont , "sans-serif";
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -74,13 +90,13 @@
 
 @layer base{
 :root {
-  --background : 210 40% 98%;
+  --background : 230 100% 99%;
   --foreground : 222 47% 11%;
 
   --card: 0 0% 100%;
 
   --primary:250 47% 60%;
-  --primary-foreground: 210 40% 98%;
+  --primary-foreground: 230 100% 99%;
 
   --border: 214 32% 91;
 }
@@ -176,11 +192,13 @@ p {
 }
 
 
+
 #root{
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  font-family: sans-serif;
 }
 
 
@@ -192,3 +210,5 @@ p {
     transform: translate(-30%, -20%) scale(1.3);
   }
 }
+
+

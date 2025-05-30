@@ -24,7 +24,7 @@ function HeroSection() {
             threshold={0.2}
             rootMargin="-50px"
             onLetterAnimationComplete={handleAnimationComplete}
-            highlightWords={{ Rabia: "text-primary" }}
+            highlightWords={{ Rabia: "text-primary font-MyFont" }}
           />
           <p className="text-lg md:text-xl text-muted-foreground max-2-xl max-auto opacity-0 animate-fade-in-delay-3 mt-4"> 
             I build sleek mobile apps with Flutter and modern web interfaces using React, JavaScript, HTML, and CSS. 

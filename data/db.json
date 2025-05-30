@@ -1,0 +1,88 @@
+
+{ "portfolioData":{
+  "skillsData": [
+    {
+      "category": "mobile",
+      "skills": [
+        "Flutter",
+        "Firebase",
+        "REST API Integration",
+        "Custom UI & Animations"
+      ]
+    },
+    {
+      "category": "frontend",
+      "skills": ["HTML5", "Tailwind Css", "JavaScript", "React.js"]
+    },
+    {
+      "category": "version control & tools",
+      "skills": ["Git & GitHub", "Visual Studio", "Unity"]
+    },
+    {
+      "category": "others",
+      "skills": [
+        "Object-Oriented Programming (OOP)",
+        "Team Collaboration",
+        "Creative Thinking"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "101",
+      "title": "HStudio Landing Page",
+      "Description": "A modern and responsive landing page built with React and Tailwind CSS for a design studio.",
+      "tags": ["Html", "Css", "javaScript"],
+      "image": "/assets/images/web-projects/Hstudio.png",
+      "demoUrl": "https://hstudio-demo.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/hstudio-landing"
+    },
+    {
+      "id": "102",
+      "title": "SaaS Analytics Dashboard",
+      "Description": "An interactive SaaS dashboard with charts and user management using React, Chart.js, and Tailwind.",
+      "tags": ["Html", "Css", "javascript", "Gsap Animation"],
+      "image": "/assets/images/web-projects/Zentime.png",
+      "demoUrl": "https://saas-dashboard-demo.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/saas-dashboard"
+    },
+    {
+      "id": "103",
+      "title": "Foodie App Landing",
+      "Description": "A sleek landing page for a food delivery app, featuring animations and responsive layout.",
+      "tags": ["Flutter", "Lottie", "Firebaes"],
+      "image": "/assets/images/app-projects/arv.png",
+      "demoUrl": "https://foodie-app.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/foodie-landing"
+    },
+    {
+      "id": "104",
+      "title": "ARvCard Portfolio",
+      "Description": "Landing page and AR preview section for Rabia's AR-based visiting card tracker app.",
+      "tags": ["Flutter", "AR", "Firebase", "unity", "C#"],
+      "image": "/assets/images/web-projects/JB.png",
+      "demoUrl": "https://arvcard-landing.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/arvcard"
+    },
+    {
+      "id": "105",
+      "title": "Blog Generator UI",
+      "Description": "Dynamic blog and post generation UI with theme switching and content editing features.",
+      "tags": ["Html", "CSS", "Draggable"],
+      "image": "/assets/images/web-projects/SC.png",
+      "demoUrl": "https://bloggen.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/blog-generator"
+    },
+    {
+      "id": "106",
+      "title": "ToDo App",
+      "Description": "A simple yet functional to-do app with persistent state using localStorage.",
+      "tags": ["Flutter", "Dart", "localStorage"],
+      "image": "/assets/images/app-projects/notesapp.png",
+      "demoUrl": "https://todo-rabia.vercel.app",
+      "gitHubUrl": "https://github.com/rabia-dev/todo-app"
+    }
+  ]
+}
+
+}

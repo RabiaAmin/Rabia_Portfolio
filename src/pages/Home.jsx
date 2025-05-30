@@ -1,11 +1,11 @@
 import React from "react";
 import ThemeToggle from "../component/ThemeToggle";
 import Threads from "../component/ThreadsBackground";
-import NavBar from "./NavBar";
+import NavBar from "../component/NavBar";
 import HeroSection from "./HeroSection";
 import AboutSection from "./AboutSection";
 import SkillsSection from "./SkillsSection";
-import Projects from "../component/Projects";
+import Projects from "../pages/Projects";
 import ContactSection from "./ContactSection";
 import Footer from "./Footer";
 

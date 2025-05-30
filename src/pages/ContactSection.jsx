@@ -4,25 +4,25 @@ const items = [
   {
     icon: <Github size={18}/>,
     label: "Github",
-    url: ""
+    url: "https://github.com/RabiaAmin"
 },
   {
     icon: <Instagram size={18} />,
     label: "Instagram",
-    url: ""
+    url: "https://www.instagram.com/rabiaamin222/"
     
   },
   {
     icon: <Linkedin size={18} />,
     label: "LinkedIn",
-    url: ""
+    url: "https://www.linkedin.com/in/rabia-amin-853804245/"
     
   },
 ];
 
 function ContactSection() {
   return (
-    <section id="" className="py-24 px-4 relative bg-secondry/30">
+    <section id="contact" className="py:10 md:py-20 px-4 relative bg-secondry/30">
       <div className="container  mx-auto max-w-5xl">
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center tracking-tight">
           Get In Touch With {" "}
@@ -34,7 +34,7 @@ function ContactSection() {
        <div className="flex justify-center gap-2 max-w-2xs  mx-auto py-4  mt-4">
          {
             items.map((item,key)=>(
-                <a className="p-4 border border-muted-foregound rounded-full hover:bg-primary/80  transition-al  duration-300 transform hover:-translate-y-1" key={key} href={item.url}>{item.icon}</a>
+                <a target="_blank" className="p-4 border border-muted-foregound rounded-full hover:bg-primary/80  transition-al  duration-300 transform hover:-translate-y-1" key={key} href={item.url}>{item.icon}</a>
             ))
          }
        </div>
