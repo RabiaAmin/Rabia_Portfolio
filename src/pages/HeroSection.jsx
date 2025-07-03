@@ -1,8 +1,10 @@
 import { ArrowDown } from "lucide-react";
 import SplitText from "../component/TextSplit";
-import CircularText from '../component/CircularText';
 
 function HeroSection() {
+
+
+
   const handleAnimationComplete = () => {
     console.log("All letters have animated!");
   };
@@ -40,7 +42,7 @@ function HeroSection() {
         </div>
       </div>
 
-      <div className="  absolute bottom-0  hidden md:flex justify-center gap-1 flex-col  left-1/2 transform -translate-x-1/2  items-center  animate-bounce  ">
+      <div className="  absolute bottom-0  flex justify-center gap-1 flex-col  left-1/2 transform -translate-x-1/2  items-center  animate-bounce  ">
         <span className="text-sm text-muted-foreground mb-1 " >Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary"/>
         {/* <CircularText

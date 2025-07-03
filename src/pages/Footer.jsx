@@ -1,18 +1,21 @@
 import { ArrowUp, Mail, Phone } from "lucide-react";
-import React from "react";
+import React, { useContext } from "react";
+import { protfolioContext } from "../context/protfolioContext";
 
 function Footer() {
+    const { user } = useContext(protfolioContext);
+  
   return (
     <footer className="h-55 md:h-35 py-12 px-8 bg-card relative  border-t border-border mt-12 mb-0 pt-8 flex flex-wrap justify-between ">
       {" "}
       <div className="flex-col justify-around ">
         <div className="flex items-start gap-2 mb-2">
           <Phone />
-          <p> +92 3049359567 </p>
+          <p> {user.phone} </p>
         </div>
         <div className="flex items-start gap-2 mb-2">
           <Mail />
-          <p> rabia10march@gamil.com </p>
+          <p> {user.email} </p>
         </div>
 
         <p>

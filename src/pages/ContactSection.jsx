@@ -1,26 +1,34 @@
 import { Github ,Instagram,Linkedin } from "lucide-react";
 import ContactForm from "../component/ContactForm";
-const items = [
+import { useContext } from "react";
+import { protfolioContext } from "../context/protfolioContext";
+
+
+function ContactSection() {
+
+    const { user } = useContext(protfolioContext);
+
+
+  const items = [
   {
     icon: <Github size={18}/>,
     label: "Github",
-    url: "https://github.com/RabiaAmin"
+    url: user.githubUrl
 },
   {
     icon: <Instagram size={18} />,
     label: "Instagram",
-    url: "https://www.instagram.com/rabiaamin222/"
+    url: user.instagramUrl
     
   },
   {
     icon: <Linkedin size={18} />,
     label: "LinkedIn",
-    url: "https://www.linkedin.com/in/rabia-amin-853804245/"
+    url: user.linkedInUrl
     
   },
 ];
-
-function ContactSection() {
+  
   return (
     <section id="contact" className="py:10 md:py-20 px-4 relative bg-secondry/30">
       <div className="container  mx-auto max-w-5xl">

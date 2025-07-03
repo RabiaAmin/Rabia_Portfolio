@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import NotFoundPage from "./pages/NotFoundPage";
 import BottomNav from "./component/BottomNav";
 import PortfolioProvider from "./context/protfolioContext";
+import ProjectView from "./pages/ProjectView";
 function App() {
   return (
     <PortfolioProvider>
@@ -12,8 +13,8 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/project/:id" element={<ProjectView />} />
         </Routes>
-
         <BottomNav /> {/* Add bottom nav here */}
       </div>
     </BrowserRouter>
