@@ -90,7 +90,7 @@
 
 @layer base{
 :root {
-  --background : 230 100% 99%;
+  --background : #FFFFFF;
   --foreground : 222 47% 11%;
 
   --card: 0 0% 100%;

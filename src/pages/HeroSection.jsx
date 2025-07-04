@@ -2,9 +2,6 @@ import { ArrowDown } from "lucide-react";
 import SplitText from "../component/TextSplit";
 
 function HeroSection() {
-
-
-
   const handleAnimationComplete = () => {
     console.log("All letters have animated!");
   };
@@ -28,10 +25,12 @@ function HeroSection() {
             onLetterAnimationComplete={handleAnimationComplete}
             highlightWords={{ Rabia: "text-primary font-MyFont" }}
           />
-          <p className="text-lg md:text-xl text-muted-foreground max-2-xl max-auto opacity-0 animate-fade-in-delay-3 mt-4"> 
-            I build sleek mobile apps with Flutter and modern web interfaces using React, JavaScript, HTML, and CSS. 
-            Excited to take on freelance work or join a remote team to create
-            user-friendly digital experiences.
+          <p className="text-lg md:text-xl text-muted-foreground max-2-xl max-auto opacity-0 animate-fade-in-delay-3 mt-4">
+            I craft intuitive and responsive digital experiences, with a focus
+            on performance, usability, and clean design. Whether building mobile
+            apps or web interfaces, I’m passionate about turning ideas into
+            polished products. Open to freelance opportunities or joining a
+            remote team that values creativity and impact.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
@@ -43,8 +42,8 @@ function HeroSection() {
       </div>
 
       <div className="  absolute bottom-0  flex justify-center gap-1 flex-col  left-1/2 transform -translate-x-1/2  items-center  animate-bounce  ">
-        <span className="text-sm text-muted-foreground mb-1 " >Scroll</span>
-        <ArrowDown className="h-5 w-5 text-primary"/>
+        <span className="text-sm text-muted-foreground mb-1 ">Scroll</span>
+        <ArrowDown className="h-5 w-5 text-primary" />
         {/* <CircularText
   text="REACT*BITS*COMPONENTS*"
   onHover="speedUp"

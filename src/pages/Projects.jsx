@@ -1,8 +1,9 @@
 import { useState, useContext } from "react";
 import { cn } from "@/lib/utility";
 
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import {  ExternalLink, Github } from "lucide-react";
 import { protfolioContext } from "../context/protfolioContext";
+import { Link} from "react-router-dom";
 
 // Get all unique tags from the projects
 const category = ["All", "Frontend","React Js", "Mern Stack", "Mobile", "Ejs"];
@@ -78,6 +79,8 @@ function Projects() {
             </div>
           ) : (
             filteredProjects.map((project, key) => (
+              <Link to={`/project/${project._id}`}>
+              
               <div
                 key={key}
                 className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
@@ -124,6 +127,7 @@ function Projects() {
                   </div>
                 </div>
               </div>
+              </Link>
             ))
           )}
         </div>

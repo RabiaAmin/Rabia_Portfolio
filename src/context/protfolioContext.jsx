@@ -8,6 +8,7 @@ const PortfolioProvider = ({children})=>{
  const [projects,setProjects] = useState([]);
  const [skills, setSkills] = useState([]);
  const [user, setUser] = useState({});
+
  const [loading , setLoading] = useState(true);
 
  useEffect(()=>{
@@ -38,6 +39,8 @@ const PortfolioProvider = ({children})=>{
 
         setLoading(false);
     }
+    
+  
     fetchProject();
     fetchSkills();
     fetchUser();
