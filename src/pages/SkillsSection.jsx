@@ -51,9 +51,15 @@ const items = [
   "Tailwind Css",
   // Add more items as needed
 ];
-
+const categories = [
+                "All",
+                "frontend",
+                "Mobile",
+                "backend",
+                "Other Technical Skills",
+              ]
 function SkillsSection() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
   const { skills, loading } = useContext(protfolioContext);
 
   console.log("this is skills data ",skills);
@@ -102,13 +108,7 @@ function SkillsSection() {
               My <span className="text-primary">Skills</span>{" "}
             </h1>
             <div className="flex  overflow-x-scroll hide-scrollbar gap-2 mb-4">
-              {[
-                "All",
-                "frontend",
-                "Mobile",
-                "backend",
-                "Other Technical Skills",
-              ].map((category, key) => (
+              {categories.map((category, key) => (
                 <div key={key}>
                   <button
                     onClick={() => setActiveCategory(category)}
