@@ -53,7 +53,7 @@ const items = [
 ];
 
 function SkillsSection() {
-  const [activeCategory, setActiveCategory] = useState("frontend");
+  const [activeCategory, setActiveCategory] = useState("All");
   const { skills, loading } = useContext(protfolioContext);
 
   console.log("this is skills data ",skills);
@@ -68,7 +68,7 @@ function SkillsSection() {
     );
 
   const filteredSkill =
-    activeCategory == "Frontend"
+    activeCategory == "All"
       ? skills
       : skills.filter((item) => item.category === activeCategory);
 
@@ -103,6 +103,7 @@ function SkillsSection() {
             </h1>
             <div className="flex  overflow-x-scroll hide-scrollbar gap-2 mb-4">
               {[
+                "All",
                 "frontend",
                 "Mobile",
                 "backend",
@@ -123,7 +124,7 @@ function SkillsSection() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-1 p-4  md:grid-cols-2  gap-8 text-sm md:text-base text-left w-full">
+            <div className="grid grid-cols-2 p-4  md:grid-cols-2  gap-8 text-sm md:text-base text-left w-full">
               {filteredSkill.map((section, index) => (
                 <div key={index} className="w-full">
                   <ul className="list-disc list-inside space-y-1  w-full" >

@@ -1,16 +1,17 @@
 import { useState, useContext } from "react";
 import { cn } from "@/lib/utility";
 
-import {  ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { protfolioContext } from "../context/protfolioContext";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Get all unique tags from the projects
-const category = ["All", "Frontend","React Js", "Mern Stack", "Mobile", "Ejs"];
+const category = ["All", "Frontend", "React Js", "Mern Stack", "Mobile", "Ejs"];
 
 function Projects() {
   const [selectedTag, setSelectedTag] = useState("All");
-  const { projects, loading ,user } = useContext(protfolioContext);
+  const { projects, loading, user } = useContext(protfolioContext);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   console.log("this is project data ", projects);
 
@@ -23,11 +24,20 @@ function Projects() {
       </div>
     );
 
-  // Filter projects based on selected tag
   const filteredProjects =
     selectedTag === "All"
       ? projects
       : projects.filter((project) => project.tags.includes(selectedTag));
+
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+
+  const handleViewMore = () => {
+    setVisibleCount((prev) => prev + 3); // Show 6 more on each click
+  };
+
+   const handleViewLess = () => {
+    setVisibleCount((prev) => prev - 3); // Show 6 more on each click
+  };
 
   return (
     <section id="project" className="py-24 px-4 relative">
@@ -48,7 +58,7 @@ function Projects() {
                 <button
                   onClick={() => setSelectedTag(tag)}
                   className={cn(
-                    "capitalize px-6 py-2  rounded-full  border border-primary text-primary hover:bg-primary/50 hover:text-primary-foreground transition-colors duration-300",
+                    "truncate capitalize px-6 py-2  rounded-full  border border-primary text-primary hover:bg-primary/50 hover:text-primary-foreground transition-colors duration-300",
                     selectedTag === tag
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondry/70"
@@ -70,67 +80,76 @@ function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-          {filteredProjects.length === 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8 ">
+          {visibleProjects.length === 0 ? (
             <div className="col-span-full flex justify-center items-center h-40">
               <p className="text-muted-foreground text-center text-lg">
                 Project Not Added Yet!
               </p>
             </div>
           ) : (
-            filteredProjects.map((project, key) => (
+            visibleProjects.map((project, key) => (
               <Link to={`/project/${project._id}`}>
-              
-              <div
-                key={key}
-                className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
-              >
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={project.image.url}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondry text-secondry-foreground ">
-                        {tag}
-                      </span>
-                    ))}
+                <div
+                  key={key}
+                  className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+                >
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={project.image.url}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
+                  <div className="p-6">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tags.map((tag) => (
+                        <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondry text-secondry-foreground ">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
 
-                  <h3 className="text-xl font-semibold mb-1 truncate">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 truncate">
-                    {project.Description}
-                  </p>
-                  <div className="flex justify-between items-center">
-                    <div className="flex space-x-3">
-                      <a
-                        href={project.demoUrl}
-                        className="text-foreground/80  hover:text-primary transition-colors duration-300"
-                        target="blank"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                      <a
-                        href={project.gitHubUrl}
-                        className="text-foreground/80  hover:text-primary transition-colors duration-300"
-                        target="black"
-                      >
-                        <Github size={20} />
-                      </a>
+                    <h3 className="text-xl font-semibold mb-1 truncate">
+                      {project.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mb-4 truncate">
+                      {project.Description}
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex space-x-3">
+                        <a
+                          href={project.demoUrl}
+                          className="text-foreground/80  hover:text-primary transition-colors duration-300"
+                          target="blank"
+                        >
+                          <ExternalLink size={20} />
+                        </a>
+                        <a
+                          href={project.gitHubUrl}
+                          className="text-foreground/80  hover:text-primary transition-colors duration-300"
+                          target="black"
+                        >
+                          <Github size={20} />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
               </Link>
             ))
           )}
         </div>
+
+        {filteredProjects.length === visibleProjects.length ? (
+          <p onClick={handleViewLess} className="cursor-pointer text-primary transition-transform duration-500 hover:scale-110">
+            View Less Projects
+          </p>
+        ) : (
+          <p onClick={handleViewMore} className=" cursor-pointer text-primary  transition-transform duration-500 hover:scale-110">
+            View More Projects
+          </p>
+        )}
       </div>
     </section>
   );
