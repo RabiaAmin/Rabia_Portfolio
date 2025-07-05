@@ -51,18 +51,11 @@ const items = [
   "Tailwind Css",
   // Add more items as needed
 ];
-const categories = [
-                "All",
-                "frontend",
-                "Mobile",
-                "backend",
-                "Other Technical Skills",
-              ]
+const categories = ["frontend", "Mobile", "backend", "Other Technical Skills"];
+
 function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const { skills, loading } = useContext(protfolioContext);
-
-  console.log("this is skills data ",skills);
 
   if (loading)
     return (
@@ -73,10 +66,10 @@ function SkillsSection() {
       </div>
     );
 
-  const filteredSkill =
-    activeCategory == "All"
-      ? skills
-      : skills.filter((item) => item.category === activeCategory);
+  const isMobile = window.innerWidth < 768;
+  const filteredSkill = isMobile
+    ? skills
+    : skills.filter((item) => item.category === activeCategory);
 
   return (
     <section id="skills" className="py-24 px-4 relative">
@@ -103,7 +96,7 @@ function SkillsSection() {
               md:h-[65vh]
               md:group-hover:flex
               md:-translate-y-4 transition-all duration-500 ease-in"
-           >
+          >
             <h1 className=" text-center text-3xl md:text-4xl font-bold mb-8 md:mb-12  md:text-start tracking-tight">
               My <span className="text-primary">Skills</span>{" "}
             </h1>
@@ -127,7 +120,7 @@ function SkillsSection() {
             <div className="grid grid-cols-2 p-4  md:grid-cols-2  gap-8 text-sm md:text-base text-left w-full">
               {filteredSkill.map((section, index) => (
                 <div key={index} className="w-full">
-                  <ul className="list-disc list-inside space-y-1  w-full" >
+                  <ul className="list-disc list-inside space-y-1  w-full">
                     {section.skills.map((skill, i) => (
                       <li key={i} className="">
                         {skill}
