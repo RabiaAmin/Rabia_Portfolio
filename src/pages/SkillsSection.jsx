@@ -120,7 +120,7 @@ function SkillsSection() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-4  p-4  gap-8 text-sm lg:text-base text-left w-full">
+            <div className="grid grid-cols-1 md:grid-cols-4  p-4  gap-8 text-sm lg:text-base text-left w-full">
               {filteredSkill.map((section, index) => (
                 <div key={index} >
                   <ul className="list-disc list-inside space-y-1  ">
