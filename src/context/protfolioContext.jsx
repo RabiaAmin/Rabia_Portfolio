@@ -2,6 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import {fetchProjectData,fetchSkillsData,fetchUserData } from "../api/index";
 
 export const protfolioContext = createContext();
+import LoadingPage from "../pages/LoadingPage";
 
 const PortfolioProvider = ({children})=>{
  
@@ -11,43 +12,31 @@ const PortfolioProvider = ({children})=>{
 
  const [loading , setLoading] = useState(true);
 
- useEffect(()=>{
-    
-     const fetchUser = async()=>{
-        setLoading(true);
+  useEffect(() => {
+    const fetchAll = async () => {
+      try {
+        const [userData, skillsData, projectData] = await Promise.all([
+          fetchUserData(),
+          fetchSkillsData(),
+          fetchProjectData(),
+        ]);
 
-        const data = await fetchUserData();
-        setUser(data.user);
-
+        setUser(userData.user);
+        setSkills(skillsData.skills);
+        setProjects(projectData.project);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
         setLoading(false);
-    }
+      }
+    };
 
-      const fetchSkills = async()=>{
-        setLoading(true);
+    fetchAll();
+  }, []);
 
-        const data = await fetchSkillsData();
-        setSkills(data.skills);
-
-        setLoading(false);
-    }
-
-       const fetchProject = async()=>{
-        setLoading(true);
-
-        const data = await fetchProjectData();
-        setProjects(data.project);
-
-        setLoading(false);
-    }
-    
-  
-    fetchProject();
-    fetchSkills();
-    fetchUser();
-    
- },[]);
-
-
+  if (loading) {
+    return <LoadingPage />;
+  }
 
  return (
     <protfolioContext.Provider  value={{projects,skills,loading,user}}>

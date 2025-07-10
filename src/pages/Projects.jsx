@@ -35,7 +35,7 @@ function Projects() {
     setVisibleCount((prev) => prev + 3); // Show 6 more on each click
   };
 
-   const handleViewLess = () => {
+  const handleViewLess = () => {
     setVisibleCount((prev) => prev - 3); // Show 6 more on each click
   };
 
@@ -69,7 +69,7 @@ function Projects() {
               </div>
             ))}
           </div>
-          <div className="text-center hidden md:block">
+          <div className="text-center hidden lg:block">
             <a
               href={user.githubUrl}
               target="_blank"
@@ -141,15 +141,22 @@ function Projects() {
           )}
         </div>
 
-        {filteredProjects.length === visibleProjects.length ? (
-          <p onClick={handleViewLess} className="cursor-pointer text-primary transition-transform duration-500 hover:scale-110">
-            View Less Projects
-          </p>
-        ) : (
-          <p onClick={handleViewMore} className=" cursor-pointer text-primary  transition-transform duration-500 hover:scale-110">
-            View More Projects
-          </p>
-        )}
+        {filteredProjects.length > 3 &&
+          (filteredProjects.length === visibleProjects.length ? (
+            <p
+              onClick={handleViewLess}
+              className="cursor-pointer text-primary transition-transform duration-500 hover:scale-110 text-center"
+            >
+              View Less Projects
+            </p>
+          ) : (
+            <p
+              onClick={handleViewMore}
+              className="cursor-pointer text-primary transition-transform duration-500 hover:scale-110 text-center"
+            >
+              View More Projects
+            </p>
+          ))}
       </div>
     </section>
   );

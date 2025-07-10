@@ -5,6 +5,7 @@ import BottomNav from "./component/BottomNav";
 import PortfolioProvider from "./context/protfolioContext";
 import ProjectView from "./pages/ProjectView";
 function App() {
+  
   return (
     <PortfolioProvider>
 

@@ -51,7 +51,7 @@ const items = [
   "Tailwind Css",
   // Add more items as needed
 ];
-const categories = ["frontend", "Mobile", "backend", "Other Technical Skills"];
+const categories = ["All","frontend", "Mobile", "backend", "Other Technical Skills"];
 
 function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
@@ -66,41 +66,44 @@ function SkillsSection() {
       </div>
     );
 
-  const isMobile = window.innerWidth < 768;
-  const filteredSkill = isMobile
+  
+  const filteredSkill = activeCategory === "All"
     ? skills
     : skills.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="skills" className="py-24 px-4 relative">
-      <div className="container max-auto max-w-5xl">
-        <div className="w-full group flex flex-col  md:flex-row justify-between items-center gap-4 md:gap-8 transition-all duration-500 ease-in">
+    <section id="skills" className=" px-4  relative">
+      <div className="container  max-auto max-w-5xl">
+        <div className="w-full h-[75vh]  group flex flex-col  lg:flex-row justify-between items-center gap-4 md:gap-8">
           {/* div 1 */}
-          <div className="hidden md:block md:h-[65vh] h-[45vh] w-[80vw] mx-auto md:group-hover:w-[55vw] relative border border-primary glow rounded-2xl overflow-hidden transition-all duration-500 ease-in ">
+          <div className="hidden lg:block h-full w-[80vw] mx-auto lg:group-hover:w-[55vw] relative border border-primary glow rounded-2xl overflow-hidden transition-all duration-500 ease-in ">
             <GridMotion items={items} />
           </div>
 
           {/* div 2 */}
           <div
             className="
-              w-[80vw]
-              md:w-[45vw]
-              flex
-              md:hidden
-              justify-center
-              items-start
-              flex-col
-              transform
-              translate-y-0
-              h-[45vh]
-              md:h-[65vh]
-              md:group-hover:flex
-              md:-translate-y-4 transition-all duration-500 ease-in"
+            w-full
+           h-full
+           lg:w-[45vw]
+         
+           flex
+           flex-col
+           justify-center
+           items-center
+           lg:hidden
+           lg:group-hover:flex
+           
+           transition-all
+           duration-300"
           >
-            <h1 className=" text-center text-3xl md:text-4xl font-bold mb-8 md:mb-12  md:text-start tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center">
               My <span className="text-primary">Skills</span>{" "}
             </h1>
-            <div className="flex  overflow-x-scroll hide-scrollbar gap-2 mb-4">
+             <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+         Each of these skills represents the effort, curiosity, and dedication I bring to every project I work on.
+        </p>
+            <div className="w-full  flex  overflow-x-scroll hide-scrollbar gap-2 mb-4">
               {categories.map((category, key) => (
                 <div key={key}>
                   <button
@@ -117,12 +120,12 @@ function SkillsSection() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-2 p-4  md:grid-cols-2  gap-8 text-sm md:text-base text-left w-full">
+            <div className="grid grid-cols-4  p-4  gap-8 text-sm lg:text-base text-left w-full">
               {filteredSkill.map((section, index) => (
-                <div key={index} className="w-full">
-                  <ul className="list-disc list-inside space-y-1  w-full">
+                <div key={index} >
+                  <ul className="list-disc list-inside space-y-1  ">
                     {section.skills.map((skill, i) => (
-                      <li key={i} className="">
+                      <li key={i} >
                         {skill}
                       </li>
                     ))}
