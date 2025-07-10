@@ -72,7 +72,7 @@ function SkillsSection() {
     : skills.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="skills" className=" px-4  relative">
+    <section id="skills" className=" px-2 md:px-4  relative">
       <div className="container  max-auto max-w-5xl">
         <div className="w-full h-[75vh]  group flex flex-col  lg:flex-row justify-between items-center gap-4 md:gap-8">
           {/* div 1 */}
@@ -120,7 +120,7 @@ function SkillsSection() {
                 </div>
               ))}
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4  p-4  gap-8 text-sm lg:text-base text-left w-full">
+            <div className="grid grid-cols-2 md:grid-cols-4  p-4  gap-8 text-sm lg:text-base text-left w-full">
               {filteredSkill.map((section, index) => (
                 <div key={index} >
                   <ul className="list-disc list-inside space-y-1  ">
