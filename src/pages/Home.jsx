@@ -1,33 +1,32 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ThemeToggle from "../component/ThemeToggle";
 import Threads from "../component/ThreadsBackground";
 import NavBar from "../component/NavBar";
-import HeroSection from "./HeroSection";
-import AboutSection from "./AboutSection";
-import SkillsSection from "./SkillsSection";
-import Projects from "../pages/Projects";
-import ContactSection from "./ContactSection";
 import Footer from "./Footer";
+
+// Lazy load heavy components
+const HeroSection = lazy(() => import("./HeroSection"));
+const AboutSection = lazy(() => import("./AboutSection"));
+const SkillsSection = lazy(() => import("./SkillsSection"));
+const Projects = lazy(() => import("../pages/Projects"));
+const ContactSection = lazy(() => import("./ContactSection"));
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden ">
-      {/* Theme Toggle */}
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <ThemeToggle />
-      {/* Background Effeect */}
-
       <Threads amplitude={3} distance={1.1} enableMouseInteraction={false} />
-
-      {/* Navbar */}
       <NavBar />
-      {/* main content */}
-      <HeroSection/>
-      <AboutSection/>
-      <SkillsSection/>
-      <Projects/>
-      <ContactSection/>
-      {/* Footer*/}
-      <Footer/> 
+
+      <Suspense fallback={<div className=" bg-transparent text-center mt-10">Loading content...</div>}>
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <Projects />
+        <ContactSection />
+      </Suspense>
+
+      <Footer />
     </div>
   );
 }
