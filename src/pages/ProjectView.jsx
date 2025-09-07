@@ -21,7 +21,6 @@ function ProjectView() {
     fetchSingleProject(id);
   }, []);
 
-  console.log(singleProject);
 
   if (loading)
     return (
@@ -33,14 +32,14 @@ function ProjectView() {
     );
 
   return (
-    <div className="w-full h-[100vh] mx-auto px-4 py-20 bg-background">
+    <div className="w-full min-h-screen mx-auto px-4 pt-20 pb-24 bg-background">
       <div className="container max-w-4xl mx-auto text-start z-10 ">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 ">
           {singleProject.title}
         </h1>
 
         <div className="w-full  flex flex-row justify-center gap-4 items-center">
-          <div className="w-100 h-100 overflow-hidden rounded-2xl shadow-md mb-6 bg-card flex items-center">
+          <div className="w-100 md:h-100  sm:h-50  overflow-hidden rounded-2xl shadow-md mb-6 bg-card flex items-center">
             <img
               src={singleProject.image?.url}
               alt={singleProject.title}
@@ -62,7 +61,7 @@ function ProjectView() {
         <p className="text-muted-foreground mb-6 whitespace-pre-wrap leading-tight">
           {singleProject.Description}
         </p>
-        <div className="flex justify-center items-center gap-4 pb-4">
+        <div className="flex justify-center items-center gap-4 pb-4 ">
           {singleProject.demoUrl && (
             <a
               href={singleProject.demoUrl}
