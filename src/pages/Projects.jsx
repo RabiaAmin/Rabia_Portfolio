@@ -6,7 +6,7 @@ import { protfolioContext } from "../context/protfolioContext";
 import { Link } from "react-router-dom";
 
 // Get all unique tags from the projects
-const category = ["All", "Frontend", "React Js", "Mern Stack", "Mobile", "Ejs"];
+const category = ["All", "Frontend", "React Js", "Mern Stack","Next Js", "Mobile"];
 
 function Projects() {
   const [selectedTag, setSelectedTag] = useState("All");
