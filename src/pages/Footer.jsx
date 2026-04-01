@@ -1,10 +1,10 @@
 import { ArrowUp, Mail, Phone } from "lucide-react";
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { protfolioContext } from "../context/protfolioContext";
 
 function Footer() {
     const { user } = useContext(protfolioContext);
-  
+
   return (
     <footer className="h-55 md:h-35 py-12 px-8 bg-card relative  border-t border-border mt-12 mb-0 pt-8 flex flex-wrap justify-between ">
       {" "}

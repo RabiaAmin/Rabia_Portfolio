@@ -34,6 +34,8 @@ const PortfolioProvider = ({children})=>{
     fetchAll();
   }, []);
 
+  
+
   if (loading) {
     return <LoadingPage />;
   }

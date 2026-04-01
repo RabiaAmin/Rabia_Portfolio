@@ -1,9 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3001/portfolioData"
-const API_URL_USER = " https://portfolio-backend-op5p.onrender.com/api/v1/user/profile/portfolio"
-const API_URL_SKILLS =  "https://portfolio-backend-op5p.onrender.com/api/v1/skills/getAll"
-const API_URL_PROJECT = " https://portfolio-backend-op5p.onrender.com/api/v1/project/getall"
+
+const API_URL = import.meta.env.VITE_API_URL;
+const API_URL_USER = import.meta.env.VITE_API_URL_USER;
+const API_URL_SKILLS = import.meta.env.VITE_API_URL_SKILLS;
+const API_URL_PROJECT = import.meta.env.VITE_API_URL_PROJECT;
+const API_URL_SINGLE_PROJECT = import.meta.env.VITE_API_URL_SINGLE_PROJECT;
+
 
 
 
@@ -63,7 +66,7 @@ export const fetchProjectData = async () => {
 
 export const fetchSingleProjectData = async (id) => {
   try {
-    const response =await axios.get(`https://portfolio-backend-op5p.onrender.com/api/v1/project/getSingleProject/${id}`);
+    const response =await axios.get(`${API_URL_SINGLE_PROJECT}/${id}`);
     return response.data;
   } catch (error) {
     console.error(
