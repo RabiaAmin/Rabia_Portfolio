@@ -1,10 +1,19 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import NotFoundPage from "./pages/NotFoundPage";
 import BottomNav from "./component/BottomNav";
 import PortfolioProvider from "./context/protfolioContext";
 import ProjectView from "./pages/ProjectView";
+import { pageview } from './lib/ga';
+import { useEffect } from "react";
+
 function App() {
+
+ const location = useLocation();
+
+  useEffect(() => {
+    pageview(location.pathname);
+  }, [location]);
   
   return (
     <PortfolioProvider>
