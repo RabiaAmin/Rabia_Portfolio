@@ -1,4 +1,4 @@
-export const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID;
+export const GA_MEASUREMENT_ID = "G-J9TENPSNPQ";
 
 export const pageview = (url) => {
   if (!GA_MEASUREMENT_ID) return; // Avoid errors if env is missing

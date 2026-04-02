@@ -24,7 +24,7 @@ const cardItems = [
 function AboutSection() {
   const { user, loading } = useContext(protfolioContext);
 
-  console.log("user data", user);
+
   const resume = user.resume;
   if (loading)
     return (

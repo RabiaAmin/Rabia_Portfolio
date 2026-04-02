@@ -3,7 +3,7 @@ import SplitText from "../component/TextSplit";
 
 function HeroSection() {
   const handleAnimationComplete = () => {
-    console.log("All letters have animated!");
+    
   };
 
   return (

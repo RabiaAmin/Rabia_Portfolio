@@ -13,7 +13,6 @@ function Projects() {
   const { projects, loading, user } = useContext(protfolioContext);
   const [visibleCount, setVisibleCount] = useState(3);
 
-  console.log("this is project data ", projects);
 
   if (loading)
     return (
